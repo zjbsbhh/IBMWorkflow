@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: '0 0 * * sat'
+    - cron: '0 0 * * mon'
 
 jobs:
   ibm-cloud-restart:
@@ -26,7 +26,7 @@ jobs:
         IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
         IBM_PASSWORD: ${{ secrets.IBM_PASSWORD }}
       run: |
-        cf login -a https://api.us-south.cf.cloud.ibm.com -u $IBM_ACCOUNT << EOF
+        cf login -a https://api.eu-gb.cf.cloud.ibm.com -u $IBM_ACCOUNT << EOF
         $IBM_PASSWORD
         EOF
     - name: Get IBM Cloud Apps
